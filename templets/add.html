@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Add result</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</head>
+<body><br><br>
+<a href="new" type="button" class="btn btn-primary">Add new student</a>
+<a href="back" type="button" class="btn btn-primary">Go back</a>
+<br><br>
+
+<div class="container">
+  <h2>Student Marks</h2>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Roll number</th>
+        <th>Date of Birth</th>
+        <th>Total marks</th>
+        <th>Grade</th>
+      </tr>
+
+    </thead>
+    {% for i in d %}
+    <form action="changeMark" method="POST">
+            {% csrf_token %}
+    <tbody>
+      <tr>
+        <td>{{i.name}}</td>
+        <td>{{i.rno}}</td>
+        <td>{{i.dob}}</td>
+        <td><input type="number" value="{{i.mark}}" name="newmark"></td>
+        <td>{{i.grade}}</td>
+        <td>
+
+            <button type="submit" class="btn btn-primary" name="ida" value="{{i.id}}">Change Mark</button>
+          </form>
+        </td>
+      </tr>
+     {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+</body>
+</html>

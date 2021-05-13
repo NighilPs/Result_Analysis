@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Bootstrap Example</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+<a href="add" type="button" class="btn btn-primary">Go back</a>
+<div class="container">
+  {{d}}
+  <h2>Add student details</h2>
+  <form action="mark" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="name">Name:</label>
+      <input type="text" class="form-control" id="name" name="name">
+    </div>
+    <div class="form-group">
+      <label for="rno">Roll number:</label>
+      <input type="text" class="form-control" id="rno" name="rno">
+    </div>
+    <div class="form-group">
+      <label for="dob">Date of birth:</label>
+      <input type="date" class="form-control" id="dob" name="dob">
+    </div>
+    <div class="form-group">
+      <label for="mark">Total mark:</label>
+      <input type="number" class="form-control" id="mark" name="mark">
+    </div>
+    <div class="form-group">
+      <input type="submit" value="Submit" class="btn btn-danger"></div>
+
+  </form>
+</div>
+
+</body>
+</html>
